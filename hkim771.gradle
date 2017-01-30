@@ -1,0 +1,31 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+    compile name: 'resources'
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Test',
+                'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                'Class-Path': '../../lib/resources.jar'
+    }
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'output'
+        }
+    }
+}
