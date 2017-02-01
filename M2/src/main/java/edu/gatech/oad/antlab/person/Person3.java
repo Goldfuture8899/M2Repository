@@ -41,29 +41,10 @@ public class Person3 {
 	 * @param input the string to be reversed
 	 * @return the reversed string
 	 */
-	}
-	private String calc(String input) {
+    private String calc(String input) {
 		StringBuilder build = new StringBuilder();
 		build.append(input);
 		build = build.reverse();
 		return build.toString();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
