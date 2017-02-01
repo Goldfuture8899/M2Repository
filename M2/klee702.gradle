@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+    compile files('lib/resources.jar')
+}
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'klee702 Gradle Test',
+                'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                'Class-Path': '../../lib/resources.jar'
+    }
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'output'
+        }
+    }
+}
